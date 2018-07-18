@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <header>
+      <p>Image recognition</p>
+    </header>
+
+    <div class="upLoadBox">
+      <form id='upLoad'>
+      Input Picture: <input type="text" name="picURL" id='picURL'>
+      <button type="submit" class="btn btn-primary" id='subBtn'>Submit</button>
+
+      </form>
+    </div>
+
+
+    <div class="result row">
+
+
+      <div class="box1 col-3">
+        <button type="button" class="btn btn-danger" disabled>Labels </button>
+        <div class="labels-Result"></div>
+      </div>
+
+
+      <div class="box2 col-3">
+        <button type="button" class="btn btn-success" disabled>Landmark </button>
+
+        <div class="landmark-Result"></div>
+
+      </div>
+      <div class="box3 col-3">
+        <button type="button" class="btn btn-success" disabled>WebSite </button>
+        <div class="WebSite-Result"></div>
+      </div>
+
+      <div class="box4 col-3">
+        <!-- <img src="" alt="" id='currentPic'> -->
+
+
+      </div>
+
+
+
+
+    </div>
+
+  </body>
+  <script src="index.js"></script>
+</html>
