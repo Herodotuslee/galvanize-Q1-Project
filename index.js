@@ -5,6 +5,10 @@ const upLoad=document.querySelector('#upLoad')
 
 upLoad.addEventListener('submit',function(e){
   e.preventDefault()
+document.querySelector('.labels-Result').innerHTML ='';
+  document.querySelector('.WebSite-Result').innerHTML='';
+    document.querySelector('.landmark-Result').innerHTML='';
+
 
   let url =document.querySelector('#picURL').value
 
@@ -27,7 +31,8 @@ upLoad.addEventListener('submit',function(e){
       "maxResults": 2
     },
     {
-         "type": "WEB_DETECTION"
+         "type": "WEB_DETECTION",
+           "maxResults":5
        }
         ]
       }
@@ -45,38 +50,56 @@ upLoad.addEventListener('submit',function(e){
     })
     .then((res)=> res.json())
     .then((data)=> {
-      document.querySelector('.landmark-Result').innerHTML +=`${data.responses[0].landmarkAnnotations[0].description}<br>`;
-      for(let i=0;i<5;i++){
-            document.querySelector('.labels-Result').innerHTML +=`${data.responses[0].labelAnnotations[i].description}<br>`
+
+
+
+      for(let i=0;i<data.responses[0].labelAnnotations.length;i++){
+            document.querySelector('.labels-Result').innerHTML +=`${data.responses[0].labelAnnotations[i].description}<hr>`
   };
 
-  // console.log(data.responses[0].webDetection.pagesWithMatchingImages[0].url)
+  for(let i=0;i<data.responses[0].webDetection.pagesWithMatchingImages.length;i++){
 
-  for(let i=0;i<5;i++){
     let webUrl=data.responses[0].webDetection.pagesWithMatchingImages[i].url
     let webName=data.responses[0].webDetection.webEntities[i].description
             document.querySelector('.WebSite-Result').innerHTML +=`<a href= ${webUrl}>${webName}</a><hr>`
 
-            // `${webUrl}<br>`
+};
 
-            // <a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+for(let i=0;i<data.responses[0].landmarkAnnotations.length;i++){
+  document.querySelector('.landmark-Result').innerHTML +=`${data.responses[0].landmarkAnnotations[i].description}<hr>`;
+  // console.log(i)
+  //
+  let lat= data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
+  let lng =data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
+
+  localStorage.setItem(data.responses[0].landmarkAnnotations[0].description,[lat,lng]);
+  // var map;
+  // function initMap() {
+  //   map = new google.maps.Map(document.getElementById('map'), {
+  //     center: {lat: 36, lng: 120 },
+  //     zoom: 8
+  //   });
+  //
+  // }
+  // let lat= data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
+  // let lng =data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
+
 };
 
 
-
     })
-
-
-    let newImg = document.createElement('img')
-      newImg.src =url
-      newImg.style.width = '20vw';
-      newImg.style.height = '20hw';
-      newImg.style.margin = '10px';
-      // newImg.id=
-      document.querySelector('.box4').appendChild(newImg)
-
-
-
-
-
+    document.getElementById("imageBox").src = url;
 })
+
+//
+var aValue = localStorage.getItem(keyName);
+let lat2 =-30.397
+let lng2 =152.644
+var map;
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat:lat2,lng:lng2},
+    zoom: 10
+  });
+}
