@@ -1,16 +1,28 @@
-const subBtn=document.querySelector('#subBtn')
+// const subBtn=document.querySelector('#subBtn')
 const key='AIzaSyAVVZYeRXzd-4s5j14oLESV6wmHGF071Gk'
 const upLoad=document.querySelector('#upLoad')
 
 
 upLoad.addEventListener('submit',function(e){
   e.preventDefault()
-document.querySelector('.labels-Result').innerHTML ='';
+  document.querySelector('.labels-Result').innerHTML ='';
   document.querySelector('.WebSite-Result').innerHTML='';
-    document.querySelector('.landmark-Result').innerHTML='';
+  document.querySelector('.landmark-Result').innerHTML='';
+
+  let url =document.querySelector('#picURL').value;
 
 
-  let url =document.querySelector('#picURL').value
+  let label=  {
+      "type":"LABEL_DETECTION",
+      "maxResults":5
+    };
+  let landmark =  {  "type": "LANDMARK_DETECTION",
+"maxResults": 1
+};
+  let webDetection=  {
+         "type": "WEB_DETECTION",
+           "maxResults":5
+       }
 
   let data = {
     "requests":[
@@ -23,17 +35,10 @@ document.querySelector('.labels-Result').innerHTML ='';
           }
         },
         "features":[
-          {
-            "type":"LABEL_DETECTION",
-            "maxResults":5
-          },
-          {  "type": "LANDMARK_DETECTION",
-      "maxResults": 2
-    },
-    {
-         "type": "WEB_DETECTION",
-           "maxResults":5
-       }
+          label,
+        landmark,
+        webDetection
+
         ]
       }
     ]
@@ -51,11 +56,38 @@ document.querySelector('.labels-Result').innerHTML ='';
     .then((res)=> res.json())
     .then((data)=> {
 
-
+console.log(data)
 
       for(let i=0;i<data.responses[0].labelAnnotations.length;i++){
             document.querySelector('.labels-Result').innerHTML +=`${data.responses[0].labelAnnotations[i].description}<hr>`
   };
+
+
+
+
+
+  if(data.responses[0].landmarkAnnotations){
+
+    console.log('hi',data.responses[0].landmarkAnnotations[0])
+    document.querySelector('.landmark-Result').innerHTML= `${data.responses[0].landmarkAnnotations[0].description}<hr>`
+    // for(let i=0;i<data.responses[0].landmarkAnnotations.length;i++){
+    //   document.querySelector('.landmark-Result').innerHTML +=`${data.responses[0].landmarkAnnotations[i].description}<hr>`;
+
+      let lat= data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
+      let lng =data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
+
+      localStorage.setItem(data.responses[0].landmarkAnnotations[0].description,[lat,lng]);
+        map.setCenter(new google.maps.LatLng(lat,lng));
+
+    // }
+  }else{
+    document.querySelector('.landmark-Result').innerHTML=data.responses[0].webDetection.bestGuessLabels[0].label
+  // document.querySelector('.landmark-Result').innerHTML ="Can't found"
+  }
+
+
+
+console.log(data.responses[0].webDetection.pagesWithMatchingImages)
 
   for(let i=0;i<data.responses[0].webDetection.pagesWithMatchingImages.length;i++){
 
@@ -65,41 +97,27 @@ document.querySelector('.labels-Result').innerHTML ='';
 
 };
 
-for(let i=0;i<data.responses[0].landmarkAnnotations.length;i++){
-  document.querySelector('.landmark-Result').innerHTML +=`${data.responses[0].landmarkAnnotations[i].description}<hr>`;
-  // console.log(i)
-  //
-  let lat= data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
-  let lng =data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
 
-  localStorage.setItem(data.responses[0].landmarkAnnotations[0].description,[lat,lng]);
-  // var map;
-  // function initMap() {
-  //   map = new google.maps.Map(document.getElementById('map'), {
-  //     center: {lat: 36, lng: 120 },
-  //     zoom: 8
-  //   });
-  //
-  // }
-  // let lat= data.responses[0].landmarkAnnotations[0].locations[0].latLng.latitude
-  // let lng =data.responses[0].landmarkAnnotations[0].locations[0].latLng.longitude
 
-};
+
 
 
     })
+    console.log(url)
+
     document.getElementById("imageBox").src = url;
+    // let img =document.querySelector('.image-blurred-edge').style.backgroundImage = `url(${url})`;
+
+
 })
 
-//
-var aValue = localStorage.getItem(keyName);
-let lat2 =-30.397
-let lng2 =152.644
-var map;
+
+
+let map;
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat:lat2,lng:lng2},
+    center: {lat:33.439856,lng:-112.066936},
     zoom: 10
   });
 }

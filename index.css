@@ -6,14 +6,10 @@
 header{
   background-color:#407CF8;
   padding:0;
-
-  /* padding-bottom: 3vh: */
   height:15vh;
-  /* text-align: center; */
 
 }
 header p{
-  /* margin-top: 1vh; */
   padding-top: 1vh;
   text-align: center;
   font-size: 8vh;
@@ -21,16 +17,17 @@ header p{
   color: white;
 }
 
+#upLoad h3{
+  font-size: 4vh;
+  align-items: center;
+}
+
 
 .box1{
   display: inline-block;
   margin-top: 1vh;
-
-  /* width:20vw; */
-
 }
 .box2{
-  /* width:100px; */
   display: inline-block;
   margin-top: 1vh;
 
@@ -39,10 +36,7 @@ header p{
   margin-top: 1vh;
 }
 
-h3{
-  font-size: 2em;
-  align-items: center;
-}
+
 
 .title{
   margin-bottom: 1em;
@@ -55,17 +49,14 @@ h3{
 
 .landmark-Result{
     margin-top: 1vh;
+    height:8vh;
+
 }
 .labels-Result{
   margin-top: 1vh;
-  /* background-color: #0984e3; */
-  /* font-size: 5vw; */
-  /* font-size: 5vh; */
 }
 
 .WebSite-Result a{
-  /* font-size: 5vh; */
-  /* font-size: 0.5em; */
 }
 
 .upLoadBox{
@@ -76,14 +67,29 @@ h3{
 
 .imgBox{
   margin:2vw;
-  /* hieght:10vh; */
-  /* width:10vh; */
 }
 #imageBox{
   margin-right: 10em;
   width:14vw;
   height:28vh;
+  box-shadow: 10px 10px 5px grey;
+  /* box-shadow: 0 0 8px 8px black inset; */
 }
+
+.image-blurred-edge {
+    margin-right: 10em;
+    background-size: cover;
+    background-image: url('https://cloud.google.com/images/products/machine-learning/ml-lead.png');
+    /* width:200px; */
+    height:200px;
+    width:200px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 8px 8px white inset;
+}
+
+
+
+
 .picURL{
   display: inline;
 }
@@ -93,8 +99,24 @@ h3{
 }
 
 #map {
+  margin-top: 1vh;
   height: 30vh;
   width:20vw;
-  margin-bottom:1vh;
 
+  /* padding-bottom: 1vh; */
+  margin-bottom:5vh;
+  box-shadow: 7px 7px 3px grey;
+      margin-left: 1vw;
+
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top:1em;
+    background-color:#407CF8;
+    color: white;
+    text-align: center;
+    height:8vh;
 }
