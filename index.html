@@ -1,85 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    <header>
-      <p>Google Cloud Machine Learning</p>
-    </header>
 
-    <div class="upLoadBox">
-      <form id='upLoad' class="form-group">
-        <h3 >Input Your Picture URL</h3>
-       <input type="text" name="picURL" id='picURL' class="form-control">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header>
+    <p>Google Cloud Machine Learning</p>
+  </header>
+
+  <div class="upLoadBox">
+    <form id='upLoad' class="form-group">
+      <h3>Input Your Picture URL</h3>
+      <input type="text" name="picURL" id='picURL' class="form-control">
       <button type="submit" class=" form-control btn btn-primary" id='subBtn'>Submit</button>
 
-      </form>
+    </form>
+  </div>
+
+
+  <div class="result row">
+
+
+    <div class="box1 col-3">
+      <button type="button" class="btn  btn-outline-secondary title" disabled>Labels </button>
+      <div class="labels-Result"></div>
     </div>
 
 
-    <div class="result row">
+    <div class="box2 col-3">
+      <button type="button" class="btn  btn-outline-secondary title" disabled>Landmark </button>
 
-
-      <div class="box1 col-3">
-        <button type="button" class="btn  btn-outline-secondary title" disabled>Labels </button>
-        <div class="labels-Result"></div>
-      </div>
-
-
-      <div class="box2 col-3">
-        <button type="button" class="btn  btn-outline-secondary title" disabled>Landmark </button>
-
-        <div class="landmark-Result"></div>
-          <div id="map"></div>
-
-      </div>
-      <div class="box3 col-3">
-        <button type="button" class="btn  btn-outline-secondary title" disabled>WebSite </button>
-        <div class="WebSite-Result"></div>
-      </div>
-
-      <div class="box4 col-3">
-        <div class="imgBox">
-          <img src="https://cloud.google.com/images/products/machine-learning/ml-lead.png" alt="Smiley face"  id='imageBox' border="5">
-          <!-- <div class="image-blurred-edge"></div> -->
-        </div>
-
-
-
-      </div>
-
-
-
+      <div class="landmark-Result"></div>
+      <div id="map"></div>
 
     </div>
+    <div class="box3 col-3">
+      <button type="button" class="btn  btn-outline-secondary title" disabled>WebSite </button>
+      <div class="WebSite-Result"></div>
+    </div>
 
-    <script>
-
-      // function initMap() {
-      //
-      //   let options {
-      //     center: {lat: 30.397, lng: 150.644},
-      //     zoom: 13
-      //   }
-      //   let map;
-      //   map = new google.maps.Map(document.getElementById('map'),options);
-      //
-      // }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwS2ykrM2b3dfu9ZKnmz5dGmvLHY5oyLI&callback=initMap"
+    <div class="box4 col-3">
+      <div class="imgBox">
+        <img src="https://cloud.google.com/images/products/machine-learning/ml-lead.png" alt="Smiley face" id='imageBox'
+          border="5">
+      </div>
+    </div>
+  </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwS2ykrM2b3dfu9ZKnmz5dGmvLHY5oyLI&callback=initMap"
     async defer></script>
-    <!-- <div class="footer">
-    <p>&copy; Copy Right 2018 Albert Lee </p>
-  </div> -->
 
+</body>
 
+<script src="index.js"></script>
 
-  </body>
-
-
-  <script src="index.js"></script>
 </html>

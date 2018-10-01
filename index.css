@@ -1,15 +1,14 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
 
-header{
-  background-color:#407CF8;
-  padding:0;
-  height:15vh;
-
+header {
+  background-color: #407cf8;
+  padding: 0;
+  height: 15vh;
 }
-header p{
+header p {
   padding-top: 1vh;
   text-align: center;
   font-size: 8vh;
@@ -17,106 +16,94 @@ header p{
   color: white;
 }
 
-#upLoad h3{
+#upLoad h3 {
   font-size: 4vh;
   align-items: center;
 }
 
-
-.box1{
+.box1 {
   display: inline-block;
   margin-top: 1vh;
 }
-.box2{
+.box2 {
   display: inline-block;
   margin-top: 1vh;
-
 }
-.box3{
+.box3 {
   margin-top: 1vh;
 }
 
-
-
-.title{
+.title {
   margin-bottom: 1em;
 }
-.result{
-  margin:0 auto;
+.result {
+  margin: 0 auto;
   font-size: 3vh;
   text-align: center;
 }
 
-.landmark-Result{
-    margin-top: 1vh;
-    height:8vh;
-
+.landmark-Result {
+  margin-top: 1vh;
+  height: 8vh;
 }
-.labels-Result{
+.labels-Result {
   margin-top: 1vh;
 }
 
-.WebSite-Result a{
+.WebSite-Result a {
 }
 
-.upLoadBox{
+.upLoadBox {
   margin-top: 5vh;
-  margin-left:35vw;
-  width:30vw;
+  margin-left: 35vw;
+  width: 30vw;
 }
 
-.imgBox{
-  margin:2vw;
+.imgBox {
+  margin: 2vw;
 }
-#imageBox{
+#imageBox {
   margin-right: 10em;
-  width:14vw;
-  height:28vh;
+  width: 14vw;
+  height: 28vh;
   box-shadow: 10px 10px 5px grey;
-  /* box-shadow: 0 0 8px 8px black inset; */
 }
 
 .image-blurred-edge {
-    margin-right: 10em;
-    background-size: cover;
-    background-image: url('https://cloud.google.com/images/products/machine-learning/ml-lead.png');
-    /* width:200px; */
-    height:200px;
-    width:200px;
-    /* you need to match the shadow color to your background or image border for the desired effect*/
-    box-shadow: 0 0 8px 8px white inset;
+  margin-right: 10em;
+  background-size: cover;
+  background-image: url("https://cloud.google.com/images/products/machine-learning/ml-lead.png");
+  height: 200px;
+  width: 200px;
+
+  box-shadow: 0 0 8px 8px white inset;
 }
 
-
-
-
-.picURL{
+.picURL {
   display: inline;
 }
-.subBtn{
+.subBtn {
   display: inline;
-
 }
 
 #map {
   margin-top: 1vh;
   height: 30vh;
-  width:20vw;
+  width: 20vw;
 
   /* padding-bottom: 1vh; */
-  margin-bottom:5vh;
+  margin-bottom: 5vh;
   box-shadow: 7px 7px 3px grey;
-      margin-left: 1vw;
-
+  margin-left: 1vw;
 }
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding-top:1em;
-    background-color:#407CF8;
-    color: white;
-    text-align: center;
-    height:8vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 1em;
+  background-color: #407cf8;
+  color: white;
+  text-align: center;
+  height: 8vh;
 }
